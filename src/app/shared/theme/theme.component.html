@@ -1,0 +1,44 @@
+<div class="fixed top-10 hidden lg:block lg:max-xl:left-24 xl:right-24 text-xl transition-transform">
+  <button
+    (click)="toggleDisplay()"
+    class="hover:bg-gray-300 dark:hover:bg-gray-600 rounded border border-gray-500 focus:border-blue-500"
+    type="button"
+    aria-haspopup="menu"
+  >
+    <span class="mx-2">
+      <span
+        class="icon pt-4 pb-4"
+        [ngClass]="{'os-default': 'icon-os', 'light': 'icon-light', 'dark': 'icon-dark'}[getThemeType()]"
+      ></span>
+      Theme
+    </span>
+  </button>
+
+  <div
+    class="fixed block border rounded bg-gray-50 border-gray-200 dark:bg-zinc-800 dark:border-gray-500 shadow-md dark:shadow-white dark:shadow-sm mt-2"
+    *ngIf="showThemeOpts"
+    #menuContainer
+  >
+    <ul class="my-2 mx-2">
+      <li
+        class="flex items-center h-8"
+        *ngFor="let theme of themes"
+      >
+        <button
+          class="w-full h-full text-left rounded hover:bg-gray-300 dark:hover:bg-gray-600"
+          [ngClass]="{'bg-white border border-gray-300 shadow dark:bg-zinc-900 dark:shadow-sm dark:shadow-gray-700': theme.value === getThemeType()}"
+          (click)="setTheme(theme.value); toggleDisplay()"
+          type="button"
+        >
+          <span class="mx-4">
+            <span
+              class="icon"
+              [ngClass]="{'os-default': 'icon-os', 'light': 'icon-light', 'dark': 'icon-dark'}[theme.value]"
+            ></span>
+            {{ theme.label }}
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
