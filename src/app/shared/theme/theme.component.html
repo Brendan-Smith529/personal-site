@@ -1,7 +1,7 @@
 <div class="fixed top-10 hidden lg:block lg:max-xl:left-24 xl:right-24 text-xl transition-transform">
   <button
     (click)="toggleDisplay()"
-    class="hover:bg-gray-300 dark:hover:bg-gray-600 rounded border border-gray-500 focus:border-blue-500"
+    class="hover:bg-gray-300 dark:hover:bg-gray-600 rounded border border-gray-500 focus:border-blue-500 cursor-pointer"
     type="button"
     aria-haspopup="menu"
   >
@@ -25,7 +25,7 @@
         *ngFor="let theme of themes"
       >
         <button
-          class="w-full h-full text-left rounded hover:bg-gray-300 dark:hover:bg-gray-600"
+          class="w-full h-full text-left rounded hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer"
           [ngClass]="{'bg-white border border-gray-300 shadow dark:bg-zinc-900 dark:shadow-sm dark:shadow-gray-700': theme.value === getThemeType()}"
           (click)="setTheme(theme.value); toggleDisplay()"
           type="button"
